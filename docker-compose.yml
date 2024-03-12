@@ -14,7 +14,6 @@ services:
     command: nginx -g 'daemon off;'
     volumes:
       - my-php-volume:/usr/share/nginx/html
-      # - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "8000:80"
     depends_on:
@@ -22,9 +21,11 @@ services:
 
   sql:
     image: my-sql
-    environment:
-      MYSQL_ROOT_PASSWORD: a3b6c9
-      MYSQL_DATABASE: testdatabase
+    # environment:
+    #   - MARIADB_USER=user
+    #   - MARIADB_PASSWORD=secret
+    #   - MARIADB_DATABASE=test
+    #   - MARIADB_ROOT_PASSWORD=a3b6c9
     ports:
       - "3306:3306"
     volumes:
@@ -33,6 +34,3 @@ services:
 volumes:
   my-php-volume:
   mariadb_data:
-
-    # volumes:
-    #   - ./html:/usr/src/app
