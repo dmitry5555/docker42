@@ -21,11 +21,11 @@ services:
 
   sql:
     image: my-sql
-    # environment:
-    #   - MARIADB_USER=user
-    #   - MARIADB_PASSWORD=secret
-    #   - MARIADB_DATABASE=test
-    #   - MARIADB_ROOT_PASSWORD=a3b6c9
+    environment:
+      - MARIADB_ROOT_PASSWORD=1
+      - MARIADB_USER=1
+      - MARIADB_PASSWORD=1
+      - MARIADB_DATABASE=1
     ports:
       - "3306:3306"
     volumes:
