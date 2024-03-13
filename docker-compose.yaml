@@ -9,6 +9,7 @@ services:
     #   - "8001:8001"
     volumes:
       - php_vol:/usr/share/nginx/html
+      - wp_vol:/var/www/html
 
       # - ./data/:/var/www/html/
       # - ./logs/nginx:/var/log/nginx/
@@ -22,6 +23,7 @@ services:
     command: nginx -g 'daemon off;'
     volumes:
       - php_vol:/usr/share/nginx/html
+      - wp_vol:/var/www/html
       # - ./data/:/var/www/html/
       # - ./logs/php.log:/var/log/fpm-php.www.log
     ports:
@@ -51,3 +53,4 @@ services:
 volumes:
   php_vol:
   db_vol:
+  wp_vol:
