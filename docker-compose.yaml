@@ -8,10 +8,12 @@ services:
     # ports:
     #   - "8001:8001"
     volumes:
-      - my-php-volume:/usr/share/nginx/html
+      - php_vol:/usr/share/nginx/html
 
       # - ./data/:/var/www/html/
       # - ./logs/nginx:/var/log/nginx/
+    env_file:
+      - .env
 
   nginx:
     # image: my-nginx
@@ -19,32 +21,33 @@ services:
     build: ./nginx/.
     command: nginx -g 'daemon off;'
     volumes:
-      - my-php-volume:/usr/share/nginx/html
+      - php_vol:/usr/share/nginx/html
       # - ./data/:/var/www/html/
       # - ./logs/php.log:/var/log/fpm-php.www.log
     ports:
       - "8000:80"
     depends_on:
       - php
+    env_file:
+      - .env
 
-  # mariadb:
-  #   container_name: maria-db
-  #   build: ./maria-db/.
-  #   image: maria-db
-  #   env_file:
-  #     - .env
-  #   # environment:
-  #   #   - MARIADB_ROOT_PASSWORD=1
-  #   #   - MARIADB_USER=1
-  #   #   - MARIADB_PASSWORD=1
-  #   #   - MARIADB_DATABASE=1
-  #   # ports:
-  #   #   - 3306:3306
-  #   volumes:
-  #     - mariadb:/var/lib/mysql
-  #     # - ./mysql-init:/docker-entrypoint-initdb.dx
+  mysql:
+    container_name: maria-db
+    build: ./maria-db/.
+    # image: maria-db
+    env_file:
+      - .env
+    # environment:
+    #   - MARIADB_ROOT_PASSWORD=1
+    #   - MARIADB_USER=1
+    #   - MARIADB_PASSWORD=1
+    #   - MARIADB_DATABASE=1
+    # ports:
+    #   - 3306:3306
+    volumes:
+      - db_vol:/var/lib/mysql
 
 
 volumes:
-  my-php-volume:
-  # mariadb:
+  php_vol:
+  db_vol:
