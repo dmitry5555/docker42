@@ -1,28 +1,28 @@
 version: '3.8'
 
 services:
-  php:
-    build: ./srcs/php/.
+  wordpress:
+    build: ./requirements/wordpress/.
     volumes:
       - wp_vol:/var/www/html
     env_file:
       - .env
 
   nginx:
-    build: ./srcs/nginx/.
+    build: ./requirements/nginx/.
     command: nginx -g 'daemon off;'
     volumes:
       - wp_vol:/var/www/html
     ports:
       - 80:80
     depends_on:
-      - php
+      - wordpress
     env_file:
       - .env
 
   mariadb:
     # container_name: mariadb
-    build: ./srcs/mariadb/.
+    build: ./requirements/mariadb/.
     env_file:
       - .env
     # ports:
