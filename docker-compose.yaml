@@ -27,7 +27,7 @@ services:
       # - ./data/:/var/www/html/
       # - ./logs/php.log:/var/log/fpm-php.www.log
     ports:
-      - "8000:80"
+      - "80:80"
     depends_on:
       - php
     env_file:
