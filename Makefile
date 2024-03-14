@@ -1,5 +1,5 @@
 build:
-	docker build -t  nginx ./nginx
+	docker build -t nginx ./nginx --no-cache
 	docker build -t php ./php
 	# docker build -t maria-db ./maria-db
 
