@@ -11,8 +11,9 @@ RUN apt update -y && \
 #     && rm latest.tar.gz \
 #     && chown -R www-data:www-data /var/www/html
 
-COPY ./script.sh /
-COPY ./wp-config.php /
+COPY ./tools/script.sh /
+COPY ./tools/wp-config.php /
+COPY ./tools/up.webp /
 # COPY ./tools/wp-config.php /
 
 CMD [ "/script.sh" ]
