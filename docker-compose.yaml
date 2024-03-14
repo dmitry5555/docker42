@@ -2,27 +2,27 @@ version: '3.8'
 
 services:
   php:
-    build: ./php/.
+    build: ./srcs/php/.
     volumes:
       - wp_vol:/var/www/html
     env_file:
       - .env
 
   nginx:
-    build: ./nginx/.
+    build: ./srcs/nginx/.
     command: nginx -g 'daemon off;'
     volumes:
       - wp_vol:/var/www/html
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - php
     env_file:
       - .env
 
-  mysql:
-    container_name: maria-db
-    build: ./maria-db/.
+  mariadb:
+    # container_name: mariadb
+    build: ./srcs/mariadb/.
     env_file:
       - .env
     # ports:

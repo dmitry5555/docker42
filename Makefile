@@ -1,7 +1,7 @@
 build:
-	docker build -t nginx ./nginx --no-cache
-	docker build -t php ./php
-	# docker build -t maria-db ./maria-db
+	# docker build -t nginx ./srcs/nginx 
+	# docker build -t php ./srcs/php
+	# docker build -t mariadb ./mariadb
 
 up:
 	docker-compose up -d
