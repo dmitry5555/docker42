@@ -15,5 +15,10 @@ tar -xvzf latest.tar.gz --strip-components=1
 rm latest.tar.gz
 chown -R www-data:www-data /var/www/html
 
+# wp-config
+cp /wp-config.php /var/www/html/
+chown www-data:www-data /var/www/html/wp-config.php
+chmod 644 /var/www/html/wp-config.php
+
 # php run
 /usr/sbin/php-fpm7.3 -F

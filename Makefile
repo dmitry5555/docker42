@@ -1,7 +1,7 @@
 build:
-	# docker build -t nginx ./srcs/requirements/nginx 
-	# docker build -t php ./srcs/requirements/php
-	# docker build -t mariadb ./srcs/requirements/mariadb
+	docker build  -t nginx ./srcs/requirements/nginx 
+	docker build  -t php ./srcs/requirements/php
+	docker build  -t mariadb ./srcs/requirements/mariadb
 
 up:
 	docker-compose -f ./srcs/docker-compose.yml up -d
@@ -16,4 +16,7 @@ restart:
 
 run: up
 
-.PHONY: build up down restart run
+clean:
+	docker system prune --all --force
+
+.PHONY: build up down restart run clean

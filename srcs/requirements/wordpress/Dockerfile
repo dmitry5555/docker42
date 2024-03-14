@@ -12,6 +12,7 @@ RUN apt update -y && \
 #     && chown -R www-data:www-data /var/www/html
 
 COPY ./script.sh /
+COPY ./wp-config.php /
 # COPY ./tools/wp-config.php /
 
 CMD [ "/script.sh" ]
