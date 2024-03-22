@@ -17,5 +17,5 @@ RUN chmod +x /usr/share/nginx/html/db.php
 RUN chmod +x /usr/share/nginx/html/index.html
 # COPY your_script.php your_script.php
 # COPY index.html index.html
-
+CMD ["nginx", "-g", "daemon off;"]
 # COPY your_script.php /usr/share/nginx/html/

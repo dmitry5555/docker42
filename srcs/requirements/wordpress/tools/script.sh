@@ -20,8 +20,18 @@ cp -f /up.webp /var/www/html/wp-content/themes/twentytwentyfour/assets/images/bu
 
 # wp-config
 cp /wp-config.php /var/www/html/
+sed -i "s/ENV_DB_NAME/$WORDPRESS_DB_NAME/g" /var/www/html/wp-config.php
+sed -i "s/ENV_DB_USER/$WORDPRESS_DB_USER/g" /var/www/html/wp-config.php
+sed -i "s/ENV_DB_PASS/$WORDPRESS_DB_PASSWORD/g" /var/www/html/wp-config.php
+sed -i "s/ENV_DB_HOST/$WORDPRESS_DB_HOST/g" /var/www/html/wp-config.php
+
+
+
 # chown www-data:www-data wp-config.php
+
 # chmod 644 /var/www/html/wp-config.php
 
 # php run
 /usr/sbin/php-fpm7.3 -F
+
+mkdir /var/www/
