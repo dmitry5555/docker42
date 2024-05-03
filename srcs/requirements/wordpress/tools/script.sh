@@ -10,13 +10,13 @@ sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm
 mkdir /run/php
 
 # wp
-curl -O https://wordpress.org/latest.tar.gz
-tar -xvzf latest.tar.gz --strip-components=1
-rm latest.tar.gz
+curl -O https://wordpress.org/wordpress-6.5.tar.gz
+tar -xvzf wordpress-6.5.tar.gz --strip-components=1
+rm wordpress-6.5.tar.gz
 chown -R www-data:www-data /var/www/html
 
 # 42
-cp -f /up.webp /var/www/html/wp-content/themes/twentytwentyfour/assets/images/building-exterior.webp
+#cp -f /up.webp /var/www/html/wp-content/themes/twentytwentyfour/assets/images/building-exterior.webp
 
 # wp-config
 cp /wp-config.php /var/www/html/
